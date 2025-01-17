@@ -27,7 +27,7 @@ jobs:
       - name: Dump GitHub context
         # Creating environment varialbe just for this step or only avaiable for this step we can say
         env:   
-         GITHUB_CONTEXT: {{ toJSON(github)}}
-        run: echo "$GITHUB_CONTEXT"
+         Mera_Variable_GITHUB_CONTEXT: ${{ toJSON(github)}}   # here Mera_Variable_GITHUB_CONTEXT is a variable that save the github context value after converting into json
+        run: echo "$Mera_Variable_GITHUB_CONTEXT"  # echo the value of the variable
 
      
