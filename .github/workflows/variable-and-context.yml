@@ -63,7 +63,7 @@ jobs:
    runs-on: ubuntu-latest
    needs: job2   # i need job2 to complete successfully in order to get its variable output value
    steps:
-    - run: echo ${{needs.job2.outputs.output1}} ${{needs.job2.outputs.outputs2}}
+    - run: echo ${{needs.job2.outputs.output1}} ${{needs.job2.outputs.output2}}
         
 
      
