@@ -98,5 +98,11 @@ jobs:
        echo $VAR2
 
        echo $VAR3
-   
+
+
+     env:
+      VAR3: mystepvar3
+
+   - run: echo $VAR#
+      
      
