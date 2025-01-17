@@ -103,6 +103,6 @@ jobs:
      env:
       VAR3: mystepvar3
 
-   - run: echo $VAR#
+   - run: echo $VAR3
       
      
