@@ -43,4 +43,27 @@ jobs:
          Mera_Variable_GITHUB_CONTEXT: ${{ toJSON(github)}}   # here Mera_Variable_GITHUB_CONTEXT is a variable that save the github context value after converting into json
         run: echo "$Mera_Variable_GITHUB_CONTEXT"  # echo the value of the variable
 
+  # step/job output variables
+  job2:
+    runs-on: ubuntu-latest
+# suppose i want to take step 1 output and pass it to another job then i have to declare output variable just like i have done below
+    outputs:
+     output1: ${{ steps.step1.outputs.step1value}}
+     output2: ${{ steps.step2.outputs.step2value}}
+
+    steps:
+      - name: Step 1
+        id: step1
+        run: echo "step1value=Hello Wahib" >> $GITHUB_OUTPUT  # this one define step1value variable and assign hello wahib value to it and then insert into github_output
+      - name: Step 2
+        id: step2
+        run: echo "step2value= to world" >> $GITHUB_OUTPUT
+
+  job3:
+   runs-on: ubuntu-latest
+   needs: job2   # i need job2 to complete successfully in order to get its variable output value
+   steps:
+    - run: echo ${{needs.job2.outputs.output1}} ${{needs.job2.outputs.outputs2}}
+        
+
      
