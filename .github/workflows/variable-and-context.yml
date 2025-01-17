@@ -24,8 +24,15 @@ on:
          default: "Munich"
          required: true
          type: string
-         
-       
+# we can define  evnvironemnt at the multiple places 
+# if we define the env variable above the jobs then it means it can be access by every job 
+# if i define the env variable at the top of workflow means before jobs then it is going to create
+# these env variable with every job it runs
+env:
+  VAR1: myworkflowvar1
+  VAR2: myworkflowvar2
+  VAR3: myworkflowvar3
+  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
