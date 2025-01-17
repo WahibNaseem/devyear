@@ -87,9 +87,11 @@ jobs:
      VAR3: myjobvar3
    steps:
 
+# these are the ways to access the env variable
+ # this is also a way to access the env variable
    - run: |
-       echo $VAR1  # these are the ways to access the env variable
-       echo ${{env.VAR1}}  # this is also a way to access the env variable
+       echo $VAR1  
+       echo ${{env.VAR1}} 
 
        echo ""
 
