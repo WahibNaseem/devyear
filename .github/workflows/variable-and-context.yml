@@ -80,9 +80,10 @@ jobs:
   job4:
    runs-on: ubuntu-latest
    env:
-     VAR2: myjobvar2  # im redefining the var2 and var3 and i have already defined above
-                         # we can define the same env variable at the workflowlevel or at the job level
-                         # but it will then take the value from job level not from global level and override the value of workflow level variable
+    # im redefining the var2 and var3 and i have already defined above
+    # we can define the same env variable at the workflowlevel or at the job level
+    # but it will then take the value from job level not from global level and override the value of workflow level variable
+     VAR2: myjobvar2 
      VAR3: myjobvar3
    steps:
 
@@ -95,8 +96,5 @@ jobs:
        echo $VAR2
 
        echo $VAR3
-
-       env:
-        VAR3: mystepvar3 
    
      
