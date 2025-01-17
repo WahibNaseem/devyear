@@ -71,6 +71,32 @@ jobs:
    needs: job2   # i need job2 to complete successfully in order to get its variable output value
    steps:
     - run: echo ${{needs.job2.outputs.output1}} ${{needs.job2.outputs.output2}}
-        
 
+# we can define the env varialbe at multiple places
+# Global variable defined at the top of jobs 
+# At the job level I can define the evn variable which can only be avaible to its' job only
+# At the step level we can also define the env variable
+        
+  job4:
+   runs-on: ubuntu-latest
+   env:
+     VAR2: myjobvar2  # im redefining the var2 and var3 and i have already defined above
+                         # we can define the same env variable at the workflowlevel or at the job level
+                         # but it will then take the value from job level not from global level and override the value of workflow level variable
+     VAR3: myjobvar3
+   steps:
+
+   - run: |
+       echo $VAR1  # these are the ways to access the env variable
+       echo ${{env.VAR1}}  # this is also a way to access the env variable
+
+       echo ""
+
+       echo $VAR2
+
+       echo $VAR3
+
+       env:
+        VAR3: mystepvar3 
+   
      
