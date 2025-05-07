@@ -15,19 +15,19 @@ on:
    # branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-   inputs:
-     name:
+  workflow_dispatch: # here workflow_dispatch is the name of trigger
+   inputs:  # i am defining the inputs
+     name: # name of input would be the text of description i mentioned below
          description: "Person to greet"
          default: "World"
          required: true
          type: string
-     city:
+     city: # here i name the input city but it would display as the favourite city
          description: "Favorite city"
          required: true
-         default: "Munich"
-         type: choice
-         options:
+         default: "Munich"  # the default value of city
+         type: choice  # type choice means it will be dropdown which i mentioned below as the options
+         options:  
                - New York
                - Seattle
                - Berlin
@@ -37,12 +37,61 @@ on:
          type: boolean
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+jobs:  #workflow always have to have job , either it can have one job or many jobs
   # This workflow contains a single job called "build"
-  greet:
+  greet: # here greet is the name of job but below i'm giving the proper name of greet job
      # Display name for the job
      name: "Greetings, Program!"
-    # The type of runner that the job will run on
+    # The type of runner that the job will run on 
+    # these runs-on means i need to run this job somewhere so ask action to run this job on the ubuntu-latest virual machine in the cloud of runner
+    # In github actions runner is the environment that runs the workflow we have defined in our xaml configuration
+    # its the machine (either hosted by Github or self-hosted) that actually performs the jobs in the workflow
+    # A runner essentially acts as the worker that:
+    # Checks out your code.
+    # Installs dependencies (like languages or tools you need).
+    # Runs your scripts or tests.
+    # Performs any other tasks you've set up in the job.
+
+    #Types of Runners
+    # 1 Github-hosted runners:
+    # These are provided by GitHub, so I don’t need to worry about setting them up myself. GitHub maintains and updates these runners.
+    # Example of Github-hosted runners:
+    # ubuntu-latest  (latest version of Ubuntu Linux
+    # windows-latest (latest version of Windows)
+    # macos-latest ( latest version of macOS)
+    # GitHub-hosted runners come with a set of preinstalled tools and software, like Node.js, Python, Docker, etc.
+    # But they can be configured with additional tools if needed.
+
+    # 2 Self-hosted runners:
+    # You can also set up your own machines or virtual machines as runners.
+    # These are called self-hosted runners. With self-hosted runners, you have more control over the environment,
+    # like specific versions of software or custom configurations.
+
+    # You set these up on your infrastructure, and once configured,
+    # you register them with your GitHub repository.
+    # Self-hosted runners can be useful for workflows that require specific configurations or high performance.
+
+    # You can also specify labels if you have multiple self-hosted runners, to target a specific machine.
+    # runs-on: [self-hosted, linux, x86_64]
+
+    # Key Points About Runners
+    # Running workflows 
+    #  The runner is the entity that executes the jobs within the workflow.
+    # It pulls the code, runs the tasks, and reports results back to GitHub.
+
+    # Job Isolation: Each job runs in a separate instance, so no job has access to the state of other jobs,
+    # unless you pass data between jobs explicitly.
+
+    # Concurrency: GitHub allows multiple workflows to run concurrently,
+    # either using multiple GitHub-hosted runners or multiple self-hosted runners.
+
+    # Resource Limits: GitHub-hosted runners have resource limits, such as maximum disk space, CPU usage, and job runtime. Self-hosted runners have no such limits,
+    # but you're responsible for maintaining them.
+
+    # GitHub-hosted runners: Provided and maintained by GitHub. You don’t need to manage them.
+
+    # Self-hosted runners: You set these up yourself and get full control over the environment.
+
      runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
