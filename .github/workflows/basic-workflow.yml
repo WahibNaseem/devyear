@@ -48,7 +48,7 @@ jobs:
      steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Send greeting
-        run: | 
+        run: | # this is | pipe symbol that indicates the multi line script
            echo "Hello ${{github.event.inputs.name}}"
            echo "Your Favourite city is ${{github.event.inputs.city}}"
            echo "Is your favourite color blue: ${{github.event.inputs.fav-color-blue}}"
