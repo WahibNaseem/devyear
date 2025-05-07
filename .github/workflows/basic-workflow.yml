@@ -6,6 +6,7 @@ name: Basic Workflow
 
 # Controls when the workflow will run
 # I need to have keyword on then below workflow_dispatch is the name of the event
+# here "on" keyword i can take as when because i need to run event like pull push etc so on specific event i want to run this workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
  # push:
