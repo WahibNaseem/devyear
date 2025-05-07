@@ -98,9 +98,13 @@ jobs:  #workflow always have to have job , either it can have one job or many jo
      steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Send greeting
+       # there is agithub context object that has all kind of information about the workflow
+       # Essentially, the context object allows you to access dynamic information about the current workflow run
+       # and use that information in your workflow steps.
+
         run: | # this is | pipe symbol that indicates the multi line script
-           echo "Hello ${{github.event.inputs.name}}"
-           echo "Your Favourite city is ${{github.event.inputs.city}}"
+           echo "Hello ${{github.event.inputs.name}}"  
+           echo "Your Favourite city is ${{github.event.inputs.city}}"  
            echo "Is your favourite color blue: ${{github.event.inputs.fav-color-blue}}"
       #- uses: actions/checkout@v4
 
