@@ -17,12 +17,12 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: # here workflow_dispatch is the name of trigger
    inputs:  # i am defining the inputs
-     name: # name of input would be the text of description i mentioned below
+     name: # name is the name of input  and label of input would be the text of description i mentioned below
          description: "Person to greet"
          default: "World"
          required: true
          type: string
-     city: # here i name the input city but it would display as the favourite city
+     city: # here i name the input city and label would display as the favourite city
          description: "Favorite city"
          required: true
          default: "Munich"  # the default value of city
