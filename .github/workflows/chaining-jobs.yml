@@ -38,7 +38,7 @@ job-3:
   job-4
    name: Job 4
    runs-on: ubuntu-latest
-   # if: always()
+    if: always()
    needs: # this job 4 will run once job 2 and job 3 will finish running or completed successfully
     - job-2
     - job-3
